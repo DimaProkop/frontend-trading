@@ -3,7 +3,7 @@ import {Constraints} from '../../constraints';
 import {Observable} from 'rxjs/Observable';
 import {catchError, map, tap} from 'rxjs/operators';
 import {CandleModel} from '../../models/candle.model';
-import {HeadersService} from '../headers.service';
+import {HelpersService} from '../helpers.service';
 import {HttpClient} from '@angular/common/http';
 import {of} from 'rxjs';
 
@@ -23,14 +23,14 @@ export class CandleService {
   getCandles(period: string): Observable<CandleModel[]> {
     return this.http
       .get<CandleModel[]>(this.candleURL, {
-        headers: HeadersService.prepareHeaders(),
+        headers: HelpersService.prepareHeaders(),
         params: {
           period: period,
-          limit: '10'
+          limit: '100'
         }
       }).pipe(
         tap(candles => console.log('fetch candles: length - ', candles.length)),
-        catchError(HeadersService.handleError('getCandles', []))
+        catchError(HelpersService.handleError('getCandles', []))
       );
   }
 }

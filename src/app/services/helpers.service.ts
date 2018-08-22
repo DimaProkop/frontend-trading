@@ -2,7 +2,7 @@ import {HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {of} from 'rxjs';
 
-export class HeadersService {
+export class HelpersService {
   public static prepareHeaders() {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');

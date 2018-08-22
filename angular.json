@@ -25,7 +25,12 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../frontend-trading/node_modules/amcharts3/amcharts/amcharts.js",
+              "../frontend-trading/node_modules/amcharts3/amcharts/serial.js",
+              "../frontend-trading/node_modules/amstock3/amcharts/amstock.js",
+              "../frontend-trading/node_modules/amcharts3/amcharts/themes/light.js"
+            ]
           },
           "configurations": {
             "production": {
