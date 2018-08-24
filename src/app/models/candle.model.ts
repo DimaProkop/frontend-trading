@@ -10,7 +10,7 @@ export class CandleModel {
   }
 }
 
-export class CandleTestModel {
+export class CandleResponseModel {
   date: Date;
   open: number;
   high: number;

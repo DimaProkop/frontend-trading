@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AmChart, AmChartsService} from '@amcharts/amcharts3-angular';
 import {CandleService} from '../../services/candle/candle.service';
-import {CandleModel, CandleTestModel} from '../../models/candle.model';
+import {CandleModel, CandleResponseModel} from '../../models/candle.model';
 
 
 @Component({
@@ -12,7 +12,7 @@ import {CandleModel, CandleTestModel} from '../../models/candle.model';
 export class CandlestickComponent implements OnInit {
 
   chart: AmChart;
-  candles: CandleTestModel[];
+  candles: CandleResponseModel[];
 
   constructor(private AmCharts: AmChartsService,
               private candleService: CandleService) {
@@ -35,7 +35,7 @@ export class CandlestickComponent implements OnInit {
       'listeners': [{
         'event': 'zoomed',
         'method': function (e) {
-          console.log('FUNCKING GOD, HOW IT WORKS?????', e.chart.startIndex);
+          console.log('FUNCKING GOD, HOW IT WORKS?????', e.chart.accessible);
         }
       }],
 
@@ -188,7 +188,7 @@ export class CandlestickComponent implements OnInit {
       .subscribe(result => {
         result.forEach(value => {
           this.candles.push(
-            new CandleTestModel(value.time, value.open, value.high,
+            new CandleResponseModel(value.time, value.open, value.high,
               value.low, value.close, value.volume)
           );
         });

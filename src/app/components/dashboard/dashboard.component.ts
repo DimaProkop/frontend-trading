@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   title = 'my FUCKING WORLD';
   period: string;
   candles: CandleModel[];
-  avaible: boolean;
+  available: boolean;
 
   constructor(private router: Router,
               private candleService: CandleService) {
@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.candles = [];
     this.period = '';
-    this.avaible = false;
+    this.available = false;
   }
 
   getCandles(): void {
@@ -33,8 +33,8 @@ export class DashboardComponent implements OnInit {
     this.candleService.getCandles(this.period)
       .subscribe(result => {
         this.candles = result;
+        this.available = true;
       });
-    this.avaible = true;
   }
 
 }

@@ -7,7 +7,7 @@
     </mat-form-field>
     <button (click)="getCandles()" mat-raised-button>Get candles</button>
   </form>
-  <div *ngIf="avaible" class="container" style="margin-top:90px">
+  <div *ngIf="available" class="container" style="margin-top:90px">
     <div class="col-lg-12">
       <div class="panel panel-success">
         <div class="panel-body" *ngFor="let c of candles">
